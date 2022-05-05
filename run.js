@@ -6,9 +6,7 @@ const main = async () => {
     await waveContract.deployed()
     console.log('Contract addy:', waveContract.address)
 
-    /*
-   * Get Contract balance
-   */
+
   let contractBalance = await hre.ethers.provider.getBalance(
     waveContract.address
   );
@@ -21,9 +19,7 @@ const main = async () => {
     // waveCount = await waveContract.getTotalWaves()
     // console.log(waveCount.toNumber())
   
-    /**
-     * Let's send a few waves!
-     */
+  
     let waveTxn = await waveContract.wave('A message!')
     await waveTxn.wait() // Wait for the transaction to be mined
   
@@ -32,9 +28,6 @@ const main = async () => {
     // await waveTxn.wait() // Wait for the transaction to be mined
 
 
-    /*
-   * Get Contract balance to see what happened!
-   */
   contractBalance = await hre.ethers.provider.getBalance(waveContract.address);
   console.log(
     "Contract balance:",
